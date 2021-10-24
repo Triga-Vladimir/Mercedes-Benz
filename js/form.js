@@ -20,16 +20,19 @@ form.addEventListener('submit', (e) => {
         fetch(formUrl, {
             method: 'POST',
             body: JSON.stringify(formData),
-        }).then((response) => {
+        })
+        .then((response) => {
             if (response.status === 200 || response.status === 201) {
                 return response.json();
             } else {
                 throw new Error(response.status);
             }
-        }).then((data) => {
+        })
+        .then(data => {
             alert('Запрос отправлен');
             form.reset();
-        }).catch((error) => {
+        })
+        .catch((error) => {
             alert('Произошла Ошибка, статус ошибки: ' + error.message);
         });
     }
